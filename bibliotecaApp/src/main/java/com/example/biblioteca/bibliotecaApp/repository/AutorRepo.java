@@ -10,8 +10,5 @@ import java.util.Optional;
 public interface AutorRepo extends JpaRepository<Autor, Integer> {
 
 
- Optional<Autor> findById(Integer id);
- List<Autor> findByAutor(Integer id);
-
 
 }

@@ -11,11 +11,10 @@ import java.time.LocalDate;
 public class Autor {
 
     public Autor() {
-        super();
+
     }
 
     public Autor(Integer Id, LocalDate data_nascimento) {
-        super();
         this.id = id;
         this.nome = nome;
         this.data_nascimento = data_nascimento;
@@ -54,6 +53,15 @@ public class Autor {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", data_nascimento=" + data_nascimento +
+                '}';
     }
 }
 

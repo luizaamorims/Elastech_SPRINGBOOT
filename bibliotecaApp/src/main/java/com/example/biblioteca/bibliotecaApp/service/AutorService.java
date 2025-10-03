@@ -32,4 +32,8 @@ public class AutorService {
         repository.deleteById(id);
     }
 
+    public void atualizar(Integer id){
+        repository.save(repository.getById(id));
+    }
+
 }
