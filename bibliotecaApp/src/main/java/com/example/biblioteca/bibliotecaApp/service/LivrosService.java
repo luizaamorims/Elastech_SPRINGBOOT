@@ -2,6 +2,7 @@ package com.example.biblioteca.bibliotecaApp.service;
 
 
 import com.example.biblioteca.bibliotecaApp.model.Livros;
+import com.example.biblioteca.bibliotecaApp.repository.LivrosRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,29 +14,29 @@ import java.util.Optional;
 public class LivrosService {
 
 
-    @Autowired LivrosService livrosService;
+    @Autowired LivrosRepo livrosRepo;
 
 
     @Transactional
     public Livros salvar(Livros livros){
-        return livrosService.salvar(livros);
+        return livrosRepo.save(livros);
 
     }
 
     public List<Livros> listarTodos(){
-        return livrosService.listarTodos();
+        return livrosRepo.findAll();
     }
 
     public void deletar(Integer id){
-        livrosService.deletar(id);
+        livrosRepo.delete(livrosRepo.getById(id));
     }
 
     public void atualizar(Integer id){
-        livrosService.atualizar(id);
+        livrosRepo.save(livrosRepo.getById(id));
     }
 
     public Optional<Livros> buscarPorId(Integer id){
-        return livrosService.buscarPorId(id);
+       return livrosRepo.findById(id);
     }
 
 

@@ -1,8 +1,10 @@
 package com.example.biblioteca.bibliotecaApp.controller;
 
+import com.example.biblioteca.bibliotecaApp.DTO.AutorDTO;
 import com.example.biblioteca.bibliotecaApp.model.Autor;
 import com.example.biblioteca.bibliotecaApp.repository.AutorRepo;
 import com.example.biblioteca.bibliotecaApp.service.AutorService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,30 +16,33 @@ import java.util.Optional;
 public class PrimeiroController {
 
 
-   @Autowired
+    @Autowired
     private AutorService autorService;
 
 
-   @GetMapping("/{id}")
-    public Optional<Autor> buscarPorId(@PathVariable("id") Integer id){
-       return autorService.buscarPorId(id);
-   }
+    @GetMapping("/{id}")
+    public Optional<Autor> buscarPorId(@PathVariable("id") Integer id) {
+        return autorService.buscarPorId(id);
+    }
 
-   @PostMapping("/addAutor")
-    public Autor salvar(@RequestBody Autor autor){
-       System.out.println("Autor: " + autor);
+    @PostMapping("/addAutor")
+    public Autor salvar(@Valid @RequestBody AutorDTO autordto) {
+        Autor autor = new Autor();
+        autor.setNome(autordto.getNome());
+        autor.setData_nascimento(autordto.getData_Nascimento());
+        System.out.println("Autor: " + autor);
         autorService.salvar(autor);
         return autor;
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable("id") Integer id){
+    public void deletar(@PathVariable("id") Integer id) {
         autorService.deletar(id);
     }
 
     @PutMapping("{/id}")
-    public void atualizar(@PathVariable("id") Integer id, @RequestBody Autor autor){
-       autor.setId(id);
+    public void atualizar(@PathVariable("id") Integer id, @RequestBody Autor autor) {
+        autor.setId(id);
         autorService.atualizar(id);
     }
 }
