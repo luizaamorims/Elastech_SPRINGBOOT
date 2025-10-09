@@ -9,15 +9,13 @@ public class AutorDTO {
 
     @NotEmpty
     @NotNull(message = "não pode ter nome nulo")
-    String nome;
-
+    private String nome;
 
     @NotNull(message = "campo invalido")
-    LocalDate data_Nascimento;
-
+    private LocalDate data_Nascimento;
 
     @Pattern(regexp = "\\d{13}$", message = "o codigo deve conter 13 digitos numericos")
-    String isbn;
+    private String isbn;
 
     public @NotEmpty String getNome() {
         return nome;

@@ -18,7 +18,6 @@ public class EditoraInputDTO {
     @Pattern(regexp = "^\\d{14}$", message = "O CNPJ deve conter 14 dígitos numéricos")
     private String cnpj;
 
-    // Getters e Setters
     public String getNome() {
         return nome;
     }

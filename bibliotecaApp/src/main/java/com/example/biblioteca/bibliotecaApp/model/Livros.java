@@ -11,11 +11,9 @@ public class Livros {
 
 
     public Livros(){
-        super();
     }
 
     public Livros(Integer id, String titulo, LocalDate data_publicacao, Integer codigo_autor) {
-        super();
         this.id = id;
         this.titulo = titulo;
         this.data_publicacao = data_publicacao;
@@ -34,6 +32,15 @@ public class Livros {
 
     @Column(name = "codigo_autor", nullable = false)
     private Integer codigo_autor;
+
+    @Column(name = "isbn")
+    private String isbn;
+
+    @Column(name = "numero_paginas")
+    private Integer numero_paginas;
+
+    @Column(name = "preco")
+    private Double preco;
 
 
     public Integer getId() {
@@ -66,6 +73,31 @@ public class Livros {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Integer getNumero_paginas() {
+        return numero_paginas;
+    }
+
+    public void setNumero_paginas(Integer numero_paginas) {
+        this.numero_paginas = numero_paginas;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     @Override

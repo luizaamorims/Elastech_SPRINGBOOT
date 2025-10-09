@@ -48,7 +48,7 @@ public class LivroInputDTO {
         this.numeroDePaginas = numeroDePaginas;
     }
 
-    public BigDecimal getPreco() {
+    public int getPreco() {
         return preco;
     }
 
