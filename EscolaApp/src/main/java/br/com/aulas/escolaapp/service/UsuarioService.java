@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.*;
 
 import java.util.stream.Collectors;
 
@@ -22,9 +23,11 @@ public class UsuarioService implements UserDetailsService {
         Usuario u = repo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
-        var authorities = u.getRole().stream()
-                .map(r -> new SimpleGrantedAuthority("ROLE_" + r))
-                .collect(Collectors.toList());
+//        var authorities = u.getRole().stream()
+//                .map(r -> new SimpleGrantedAuthority("ROLE_" + r))
+//                .collect(Collectors.toList());
+
+        var authorities = u.getRole();
 
         return new org.springframework.security.core.userdetails.User(u.getUsername(), u.getPassword(), authorities);
     }

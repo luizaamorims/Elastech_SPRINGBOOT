@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Sistema de Autores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Cabeçalho -->
+    <div class="header">
+        <h1>📚 Sistema de Gerenciamento de Autores</h1>
+        <p>Gerencie os autores da sua biblioteca de forma simples e eficiente</p>
+    </div>
+
+    <!-- Menu de Botões -->
+    <div class="menu-botoes">
+        <button class="botao-menu buscar" onclick="mostrarBuscar()">
+            🔍 Buscar Autor por ID
+        </button>
+        <button class="botao-menu adicionar" onclick="mostrarAdicionar()">
+            ➕ Adicionar Novo Autor
+        </button>
+        <button class="botao-menu atualizar" onclick="mostrarAtualizar()">
+            ✏️ Atualizar Autor
+        </button>
+        <button class="botao-menu deletar" onclick="mostrarDeletar()">
+            🗑️ Deletar Autor
+        </button>
+    </div>
+
+    <!-- Formulário de Busca -->
+    <div id="formBuscar" class="formulario-container">
+        <button class="voltar-btn" onclick="voltarMenu()">← Voltar ao Menu</button>
+        <h2 class="form-titulo">🔍 Buscar Autor por ID</h2>
+        <div class="campo-grupo">
+            <label for="idBusca">ID do Autor:</label>
+            <input type="number" id="idBusca" placeholder="Digite o ID do autor...">
+        </div>
+        <div class="botoes-acao">
+            <button class="btn primario" onclick="buscarAutor()">Buscar Autor</button>
+        </div>
+        <div id="resultadoBusca"></div>
+    </div>
+
+    <!-- Formulário de Adicionar -->
+    <div id="formAdicionar" class="formulario-container">
+        <button class="voltar-btn" onclick="voltarMenu()">← Voltar ao Menu</button>
+        <h2 class="form-titulo">➕ Adicionar Novo Autor</h2>
+        <div class="campo-grupo">
+            <label for="nomeAutor">Nome do Autor:</label>
+            <input type="text" id="nomeAutor" placeholder="Digite o nome completo...">
+        </div>
+        <div class="campo-grupo">
+            <label for="dataNasc">Data de Nascimento:</label>
+            <input type="date" id="dataNasc">
+        </div>
+        <div class="botoes-acao">
+            <button class="btn sucesso" onclick="adicionarAutor()">Cadastrar Autor</button>
+            <button class="btn secundario" onclick="limparFormAdicionar()">Limpar</button>
+        </div>
+        <div id="resultadoAdicionar"></div>
+    </div>
+
+    <!-- Formulário de Atualizar -->
+    <div id="formAtualizar" class="formulario-container">
+        <button class="voltar-btn" onclick="voltarMenu()">← Voltar ao Menu</button>
+        <h2 class="form-titulo">✏️ Atualizar Autor</h2>
+        <div class="campo-grupo">
+            <label for="idAtualizar">ID do Autor:</label>
+            <input type="number" id="idAtualizar" placeholder="Digite o ID do autor...">
+        </div>
+        <div class="campo-grupo">
+            <label for="nomeAtualizar">Novo Nome:</label>
+            <input type="text" id="nomeAtualizar" placeholder="Digite o novo nome...">
+        </div>
+        <div class="campo-grupo">
+            <label for="dataNascAtualizar">Nova Data de Nascimento:</label>
+            <input type="date" id="dataNascAtualizar">
+        </div>
+        <div class="botoes-acao">
+            <button class="btn primario" onclick="buscarParaAtualizar()">Buscar Dados Atuais</button>
+            <button class="btn sucesso" onclick="atualizarAutor()">Atualizar Autor</button>
+            <button class="btn secundario" onclick="limparFormAtualizar()">Limpar</button>
+        </div>
+        <div id="resultadoAtualizar"></div>
+    </div>
+
+    <!-- Formulário de Deletar -->
+    <div id="formDeletar" class="formulario-container">
+        <button class="voltar-btn" onclick="voltarMenu()">← Voltar ao Menu</button>
+        <h2 class="form-titulo">🗑️ Deletar Autor</h2>
+        <div class="campo-grupo">
+            <label for="idDeletar">ID do Autor:</label>
+            <input type="number" id="idDeletar" placeholder="Digite o ID do autor...">
+        </div>
+        <div class="botoes-acao">
+            <button class="btn perigo" onclick="deletarAutor()">Deletar Autor</button>
+            <button class="btn secundario" onclick="limparFormDeletar()">Limpar</button>
+        </div>
+        <div id="resultadoDeletar"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
